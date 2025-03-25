@@ -1,8 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+//    alias(libs.plugins.koin)
+//    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
 }
-
+//apply plugin: 'kotlin-kapt'
 android {
     namespace 'com.example.moneysaver'
     compileSdk 34
@@ -30,15 +33,32 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+
+    buildFeatures{
+        viewBinding true
+    }
+
+
 }
 
 dependencies {
+
+    implementation project(':domain')
+    implementation(project(":database"))
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
     implementation libs.androidx.activity
     implementation libs.androidx.constraintlayout
+    implementation libs.fragments
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    implementation libs.coroutines.core
+    implementation libs.coroutines.android
+    implementation libs.koin.core
+    implementation libs.koin.android
+
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
