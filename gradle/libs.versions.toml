@@ -26,6 +26,7 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 androidxCoreTesting = "2.1.0"
+mockk = "1.13.4"
 
 [libraries]
 #Android Core
@@ -58,6 +59,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxCoreTesting" }
+mockk = {group = "io.mockk", name = "mockk", version.ref = "mockk"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
