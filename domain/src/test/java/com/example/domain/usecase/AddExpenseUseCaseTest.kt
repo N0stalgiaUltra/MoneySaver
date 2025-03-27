@@ -1,10 +1,7 @@
 package com.example.domain.usecase
 
+import com.example.domain.dataresult.DataResult
 import com.example.domain.entity.Expense
-import com.example.domain.repository.ExpenseRepository
-import io.mockk.coEvery
-import io.mockk.coVerify
-import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
 import org.junit.Before
@@ -35,7 +32,22 @@ class AddExpenseUseCaseTest{
 
     @Test
     fun `invoke should add multiple expenses to fake repository`() = runBlocking{
+        val expense = expenseMock
+        val expense2 = expenseMock2
 
+        val result = useCase(expense)
+        val result2 = useCase(expense2)
+
+        val expenses = fakeRepository.getAllExpenses()
+
+        assertTrue(expenses.contains(expense))
+        assertTrue(expenses.contains(expense2))
+
+        assertTrue(result is DataResult.Success)
+        assertTrue(result2 is DataResult.Success)
+
+        assertEquals(Unit, (result as DataResult.Success).data)
+        assertEquals(Unit, (result2 as DataResult.Success).data)
     }
 
     @Test
@@ -62,6 +74,15 @@ class AddExpenseUseCaseTest{
 
     companion object{
         val expenseMock = Expense(
+            4,
+            "TESTE",
+            100.00,
+            "03/02/1998",
+            "Despesas",
+            "Celular Novo"
+        )
+
+        val expenseMock2 = Expense(
             4,
             "TESTE",
             100.00,

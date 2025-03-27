@@ -1,4 +1,4 @@
-package com.example.domain.usecase
+package com.example.domain.dataresult
 
 sealed class DataResult <out T>{
     class Success <out T> (val data: T) : DataResult<T>()

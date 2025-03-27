@@ -20,13 +20,14 @@ coroutines = "1.7.3"
 #DI
 koin = "3.5.0"
 
-
 #Testagem
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 androidxCoreTesting = "2.1.0"
 mockk = "1.13.4"
+roomTesting = "2.5.0"
+coreKtxVersion = "1.6.1"
 
 [libraries]
 #Android Core
@@ -60,6 +61,8 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "j
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxCoreTesting" }
 mockk = {group = "io.mockk", name = "mockk", version.ref = "mockk"}
+roomTesting = {group = "androidx.room", name = "room-testing", version.ref = "roomTesting"}
+core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

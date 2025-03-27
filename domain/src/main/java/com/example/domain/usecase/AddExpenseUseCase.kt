@@ -1,12 +1,11 @@
 package com.example.domain.usecase
 
+import com.example.domain.dataresult.DataResult
 import com.example.domain.entity.Expense
 import com.example.domain.repository.ExpenseRepository
 
 class AddExpenseUseCase(private val repository: ExpenseRepository) {
-    suspend operator fun invoke(expense: Expense): DataResult<Unit>{
-        repository.addExpense(expense)
-
+    suspend operator fun invoke(expense: Expense): DataResult<Unit> {
         if(expense.name.isBlank() || expense.amount <= 0){
             return DataResult.Failure(IllegalArgumentException
                 ("Invalid Expense"))
