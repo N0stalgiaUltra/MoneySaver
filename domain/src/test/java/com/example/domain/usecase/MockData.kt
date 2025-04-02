@@ -1,5 +1,7 @@
 package com.example.domain.usecase
 
+import android.provider.ContactsContract.Data
+import com.example.domain.dataresult.DataResult
 import com.example.domain.entity.Expense
 import com.example.domain.repository.ExpenseRepository
 import kotlin.math.exp
@@ -7,24 +9,38 @@ import kotlin.math.exp
 class FakeExpenseRepository: ExpenseRepository {
     private var expenses = mutableListOf<Expense>()
 
-    override suspend fun addExpense(item: Expense) {
-        expenses.add(item)
+    override suspend fun addExpense(item: Expense): DataResult<Unit> {
+        try{
+            expenses.add(item)
+            return DataResult.Success(Unit)
+        }catch (e: Exception){
+            return DataResult.Failure(e)
+        }
     }
 
-    override suspend fun removeExpense(id: Long) {
-        expenses.remove(
-            expenses.find {
-                it.id == id
-            }
-        )
+    override suspend fun removeExpense(id: Long): DataResult<Unit> {
+        try{
+            expenses.remove(
+                expenses.find {
+                    it.id == id
+                }
+            )
+            return DataResult.Success(Unit)
+        }catch (e: Exception){
+            return DataResult.Failure(e)
+        }
     }
 
-    override suspend fun getExpense(id: Long): Expense? {
+    override suspend fun getExpense(id: Long): DataResult<Expense?> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun getAllExpenses(): List<Expense> {
-        return expenses;
+    override suspend fun getAllExpenses(): DataResult<List<Expense>> {
+        try {
+            return DataResult.Success(expenses)
+        }catch (e: Exception){
+            return DataResult.Failure(e)
+        }
     }
 
 

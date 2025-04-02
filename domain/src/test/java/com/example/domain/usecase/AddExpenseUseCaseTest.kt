@@ -25,7 +25,7 @@ class AddExpenseUseCaseTest{
         val result = useCase(expense)
         val expenses = fakeRepository.getAllExpenses()
 
-        assertTrue(expenses.contains(expense))
+        assertTrue(expenses.success.data.contains(expense))
         assertTrue(result is DataResult.Success)
         assertEquals(Unit, (result as DataResult.Success).data)
     }
@@ -40,8 +40,8 @@ class AddExpenseUseCaseTest{
 
         val expenses = fakeRepository.getAllExpenses()
 
-        assertTrue(expenses.contains(expense))
-        assertTrue(expenses.contains(expense2))
+        assertTrue(expenses.success.data.contains(expense))
+        assertTrue(expenses.success.data.contains(expense2))
 
         assertTrue(result is DataResult.Success)
         assertTrue(result2 is DataResult.Success)
