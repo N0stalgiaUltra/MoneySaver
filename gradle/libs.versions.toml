@@ -28,6 +28,7 @@ androidxCoreTesting = "2.1.0"
 mockk = "1.13.4"
 roomTesting = "2.5.0"
 coreKtxVersion = "1.6.1"
+fragmentTesting = "1.8.6"
 
 [libraries]
 #Android Core
@@ -64,6 +65,8 @@ androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testin
 mockk = {group = "io.mockk", name = "mockk", version.ref = "mockk"}
 roomTesting = {group = "androidx.room", name = "room-testing", version.ref = "roomTesting"}
 core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
+fragment-testing-manifest = { group = "androidx.fragment", name ="fragment-testing-manifest", version.ref= "fragmentTesting"}
+fragment-testing = { group = "androidx.fragment", name ="fragment-testing", version.ref= "fragmentTesting"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
