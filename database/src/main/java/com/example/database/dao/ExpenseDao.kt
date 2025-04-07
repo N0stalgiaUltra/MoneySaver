@@ -4,13 +4,14 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.database.entity.ExpenseLocal
 import com.example.domain.entity.Expense
 
 @Dao
 interface ExpenseDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertExpense(expense: Expense)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
+    fun insertExpense(expense: ExpenseLocal)
 
     @Query("DELETE FROM expenses WHERE id = :id")
     fun removeExpenseUseCase(id: Long)
