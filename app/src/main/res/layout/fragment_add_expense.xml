@@ -57,6 +57,7 @@
         app:cornerRadius="@dimen/_10sdp"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:elevation="@dimen/_8sdp"
+        android:maxLength="30"
 
         android:textColor="@color/white"
         android:backgroundTint="@color/musgo_green"

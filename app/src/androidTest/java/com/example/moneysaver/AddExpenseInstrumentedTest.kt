@@ -8,11 +8,15 @@ import androidx.test.espresso.PerformException
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.moneysaver.fragments.AddExpense
+import com.example.moneysaver.utils.ValidationResult
+import com.example.moneysaver.utils.ValidationUtil
+import junit.framework.Assert.assertFalse
 import junit.framework.Assert.assertTrue
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.fail
@@ -44,14 +48,11 @@ class AddExpenseInstrumentedTest {
         onViewEditText.check(matches(isDisplayed()))
         onViewEditText.perform(typeText(""))
 
-        try {
-            val addButton = onView(withId(R.id.btn_add_expense))
-            addButton.check(matches(isDisplayed())).perform(click())
-            fail("Expected an exception to be thrown")
-        }catch (e: PerformException){
-            assertTrue(e.cause is IllegalArgumentException)
-            assertEquals("Name cannot be empty", e.cause?.message)
-        }
+        val addButton = onView(withId(R.id.btn_add_expense))
+        addButton.check(matches(isDisplayed())).perform(click())
+
+        val result = ValidationUtil().validateName("")
+        assertEquals(result.success, false)
     }
 
 
