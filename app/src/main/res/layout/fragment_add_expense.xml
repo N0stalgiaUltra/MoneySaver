@@ -38,12 +38,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
+        app:errorEnabled="true"
+        app:boxStrokeErrorColor="@color/red"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/forest_green"
+            android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
 

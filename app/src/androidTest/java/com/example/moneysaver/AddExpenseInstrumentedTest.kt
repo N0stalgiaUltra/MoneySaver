@@ -55,5 +55,23 @@ class AddExpenseInstrumentedTest {
         assertEquals(result.success, false)
     }
 
+    @Test
+    fun shouldNotAddItemIfNameIsTooLong(){
+        launchFragmentInContainer<AddExpense>(
+            themeResId = R.style.Theme_MoneySaver)
+
+        val onViewEditText = onView(withId(R.id.et_name))
+
+        onViewEditText.check(matches(isDisplayed()))
+        onViewEditText.perform(typeText(
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+
+        val addButton = onView(withId(R.id.btn_add_expense))
+        addButton.check(matches(isDisplayed())).perform(click())
+
+        val result = ValidationUtil().validateName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+        assertEquals(result.success, false)
+    }
+
 
 }

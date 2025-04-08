@@ -32,15 +32,22 @@ class AddExpense : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnAddExpense.setOnClickListener {
-            val name = binding.etName.text.toString()
-            val result = validationUtil.validateName(name)
-            // TODO: criar dialogo exibindo erro 
-//            if(nome.trim().isEmpty())
-//                throw IllegalArgumentException("Name cannot be empty")
+
+            validateFields()
         }
     }
 
+    /**
+     * Method to validate all the text input fields
+     * */
+    private fun validateFields(){
 
-    private fun validateFields(){}
+        val resultName = validationUtil.validateName(binding.etName.text.toString())
+        if(!resultName.success)
+            binding.etName.error = resultName.error.toString()
+        else
+            binding.etLayoutName.error = null
+
+    }
 
 }
