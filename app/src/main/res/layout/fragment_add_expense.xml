@@ -39,14 +39,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/forest_green"
-
             />
-
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_expense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:text="Add Expense"
+
+        app:cornerRadius="@dimen/_10sdp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:elevation="@dimen/_8sdp"
+
+        android:textColor="@color/white"
+        android:backgroundTint="@color/musgo_green"
+
+        app:layout_constraintVertical_bias=".9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
