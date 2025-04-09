@@ -16,6 +16,29 @@ class ValidationUtil{
             ValidationResult(true)
         }
     }
+
+    fun validateAmount(amount: String): ValidationResult{
+        return if(amount.isEmpty()){
+            ValidationResult(
+                false,
+                error = listOf("Amount cannot be empty !")
+            )
+        }
+        else if(amount.toDouble() < 0.0){
+            ValidationResult(
+                false,
+                error = listOf("Amount cannot be negative !")
+            )
+        }
+        else if (amount.toDouble() == 0.0){
+            ValidationResult(
+                false,
+                error = listOf("Amount cannot be equals to zero !")
+            )
+        }
+        else
+            ValidationResult(true)
+    }
 }
 
 data class ValidationResult(

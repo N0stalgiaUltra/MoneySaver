@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-04-08T20:07:46.745664900Z">
+        <DropdownSelection timestamp="2025-04-09T12:20:34.560374100Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="PhysicalDevice" identifier="serial=R9XXA0BR5QD" />
@@ -13,19 +13,16 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="LocalDataSourceImplTest">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="addExpense_should_not_insert_with_same_id()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="AddExpenseInstrumentedTest">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="shouldGetErrorIfAmountIsLessThanZero()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="shouldNotAddItemIfNameIsEmpty()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="shouldNotAddItemIfNameIsTooLong()">
+      <SelectionState runConfigName="shouldAcceptDoubleEvenWithoutDecimal()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

@@ -34,10 +34,12 @@
         android:hint="Expense name"
 
         app:shapeAppearance="@style/Rounded"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias=".3"
 
         app:errorEnabled="true"
         app:boxStrokeErrorColor="@color/red"
@@ -49,6 +51,34 @@
             android:textColor="@color/forest_green"
             android:inputType="text"
             />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_layout_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/OutlineBox"
+        android:layout_margin="@dimen/_10sdp"
+
+        android:hint="Type the amount"
+
+        app:shapeAppearance="@style/Rounded"
+        app:layout_constraintTop_toBottomOf="@id/et_layout_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:errorEnabled="true"
+        app:boxStrokeErrorColor="@color/red"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/forest_green"
+            android:inputType="numberDecimal"
+            />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
