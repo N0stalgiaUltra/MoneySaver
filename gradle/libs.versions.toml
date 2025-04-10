@@ -29,6 +29,7 @@ mockk = "1.13.4"
 roomTesting = "2.5.0"
 coreKtxVersion = "1.6.1"
 fragmentTesting = "1.8.6"
+espressoContrib = "3.6.1"
 
 [libraries]
 #Android Core
@@ -67,6 +68,7 @@ roomTesting = {group = "androidx.room", name = "room-testing", version.ref = "ro
 core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
 fragment-testing-manifest = { group = "androidx.fragment", name ="fragment-testing-manifest", version.ref= "fragmentTesting"}
 fragment-testing = { group = "androidx.fragment", name ="fragment-testing", version.ref= "fragmentTesting"}
+androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

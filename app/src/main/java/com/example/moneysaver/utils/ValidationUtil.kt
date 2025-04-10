@@ -39,6 +39,15 @@ class ValidationUtil{
         else
             ValidationResult(true)
     }
+
+    fun validateDate(date: String): ValidationResult{
+        return if(date.isEmpty())
+            ValidationResult(
+                false,
+                error = listOf("Date cannot be empty !")
+            ) else
+                ValidationResult(true)
+    }
 }
 
 data class ValidationResult(

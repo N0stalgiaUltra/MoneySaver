@@ -1,5 +1,6 @@
 package com.example.moneysaver.fragments
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -56,9 +57,20 @@ class AddExpense : Fragment() {
                 }
             }
         })
+
+        binding.etDate.setOnClickListener {
+            openDateDialog()
+        }
+
         binding.btnAddExpense.setOnClickListener {
             validateFields()
         }
+    }
+
+    private fun openDateDialog() {
+        val dialog = DatePickerDialog(requireContext(),{
+             _, year, month, dayOfMonth -> binding.etDate.setText("$dayOfMonth/${month+1}/$year")
+        } , 2025, 0, 15).show()
     }
 
     /**

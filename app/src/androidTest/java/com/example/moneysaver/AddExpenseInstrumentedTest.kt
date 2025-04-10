@@ -2,6 +2,7 @@ package com.example.moneysaver
 
 import android.app.Activity
 import android.database.sqlite.SQLiteConstraintException
+import android.widget.DatePicker
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.closeSoftKeyboard
@@ -10,8 +11,10 @@ import androidx.test.espresso.PerformException
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.PickerActions
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -22,6 +25,7 @@ import junit.framework.Assert.assertFalse
 import junit.framework.Assert.assertTrue
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.fail
+import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
@@ -180,5 +184,34 @@ class AddExpenseInstrumentedTest {
         assertEquals(result.success, true)
     }
 
+    /**
+     *  Date Picker
+     * */
 
+    @Test
+    fun shouldNotAcceptEmptyDate(){
+        launchFragmentInContainer<AddExpense>(themeResId = R.style.Theme_MoneySaver)
+
+        val datePicker = onView(withId(R.id.et_date))
+        datePicker.check(matches(isDisplayed())).perform(click())
+
+
+        val result = ValidationUtil().validateDate("")
+        assertEquals(result.success, false)
+        assertEquals(result.error!![0], "Date cannot be empty !")
+    }
+
+    @Test
+    fun shouldAcceptDate(){
+        launchFragmentInContainer<AddExpense>(themeResId = R.style.Theme_MoneySaver)
+
+        val datePicker = onView(withId(R.id.et_date))
+        datePicker.check(matches(isDisplayed())).perform(click())
+
+        onView(withClassName(equalTo(DatePicker::class.java.name)))
+            .perform(PickerActions.setDate(2005, 5, 14))
+
+        val result = ValidationUtil().validateDate("14/5/2005")
+        assertEquals(result.success, true)
+    }
 }
