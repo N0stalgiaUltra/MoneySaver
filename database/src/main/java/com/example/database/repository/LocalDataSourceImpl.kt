@@ -3,8 +3,7 @@ package com.example.database.repository
 import com.example.database.dao.ExpenseDao
 import com.example.database.mapper.ExpenseMapper
 import com.example.domain.datasource.LocalDataSource
-import com.example.domain.entity.Expense
-import kotlin.math.exp
+import com.example.domain.model.Expense
 
 class LocalDataSourceImpl(private val dao: ExpenseDao): LocalDataSource {
     override fun insert(expense: Expense) {

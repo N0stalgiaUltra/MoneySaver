@@ -1,7 +1,7 @@
 package com.example.domain.usecase
 
 import com.example.domain.dataresult.DataResult
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 import com.example.domain.repository.ExpenseRepository
 
 class AddExpenseUseCase(private val repository: ExpenseRepository) {

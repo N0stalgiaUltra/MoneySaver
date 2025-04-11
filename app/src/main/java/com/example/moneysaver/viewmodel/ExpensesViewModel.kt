@@ -3,8 +3,7 @@ package com.example.moneysaver.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.domain.entity.Expense
-import kotlin.math.exp
+import com.example.domain.model.Expense
 
 class ExpensesViewModel(): ViewModel() {
 
@@ -55,7 +54,6 @@ class ExpensesViewModel(): ViewModel() {
     fun addExpense(expense: Expense){
         // TODO: 1 - Adicionar com UseCase
         // TODO: 2 - Adicionar no Room
-
         if(!mutableExpenses.contains(expense)){
             mutableExpenses.add(expense)
             _expensesList.value = mutableExpenses.toList()

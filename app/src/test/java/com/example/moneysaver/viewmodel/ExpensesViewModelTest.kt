@@ -1,7 +1,7 @@
 package com.example.moneysaver.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule

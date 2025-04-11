@@ -1,9 +1,8 @@
 package com.example.database.repository
 
-import android.provider.ContactsContract.Data
 import com.example.domain.dataresult.DataResult
 import com.example.domain.datasource.LocalDataSource
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 import com.example.domain.repository.ExpenseRepository
 
 class ExpenseRepositoryImpl(private val dataSource: LocalDataSource) : ExpenseRepository {

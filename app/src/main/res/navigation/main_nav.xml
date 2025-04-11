@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/addExpense"
-        android:name="com.example.moneysaver.fragments.AddExpense"
+        android:name="com.example.moneysaver.fragments.AddExpenseFragment"
         android:label="fragment_add_expense"
         tools:layout="@layout/fragment_add_expense" />
 

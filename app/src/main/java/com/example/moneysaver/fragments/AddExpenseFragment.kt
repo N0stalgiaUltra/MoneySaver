@@ -8,13 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import com.example.moneysaver.databinding.FragmentAddExpenseBinding
-import com.example.moneysaver.utils.ValidationResult
 import com.example.moneysaver.utils.ValidationUtil
 
 
-class AddExpense : Fragment() {
+class AddExpenseFragment : Fragment() {
 
     private lateinit var binding: FragmentAddExpenseBinding
     private val validationUtil = ValidationUtil()
@@ -89,6 +87,17 @@ class AddExpense : Fragment() {
         else
             binding.etLayoutAmount.error = null
 
+        val resultDate = validationUtil.validateDate(binding.etDate.text.toString())
+        if(!resultDate.success)
+            binding.etDate.error = resultDate.error.toString()
+        else
+            binding.etLayoutDate.error = null
+
+        val resultCategory = validationUtil.validateCategory(binding.etCategory.text.toString())
+        if(!resultCategory.success)
+            binding.etCategory.error = resultCategory.error.toString()
+        else
+            binding.etLayoutCategory.error = null
     }
 
 }

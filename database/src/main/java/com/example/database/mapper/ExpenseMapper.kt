@@ -1,7 +1,7 @@
 package com.example.database.mapper
 
 import com.example.database.entity.ExpenseLocal
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 
 object ExpenseMapper {
     fun toExpenseLocal(expense: Expense): ExpenseLocal{

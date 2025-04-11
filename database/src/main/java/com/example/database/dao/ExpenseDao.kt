@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.database.entity.ExpenseLocal
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 
 @Dao
 interface ExpenseDao {

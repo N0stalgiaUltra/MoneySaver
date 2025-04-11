@@ -4,24 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.AddExpense"
+    tools:context=".fragments.AddExpenseFragment"
     android:background="@color/light_green"
     >
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add an expense"
-        android:textStyle="bold"
-        android:textSize="@dimen/_20sdp"
         android:textColor="@color/black"
-        app:layout_constraintVertical_bias=".1"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"
 
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".05" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_layout_name"
@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias=".3"
+        app:layout_constraintVertical_bias=".15"
 
         app:errorEnabled="true"
         app:boxStrokeErrorColor="@color/red"
@@ -113,6 +113,63 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_layout_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/OutlineBox"
+        android:layout_margin="@dimen/_10sdp"
+
+        android:autofillHints="name"
+        android:hint="Category"
+
+        app:shapeAppearance="@style/Rounded"
+
+        app:layout_constraintTop_toBottomOf="@id/et_layout_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:errorEnabled="true"
+        app:boxStrokeErrorColor="@color/red"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/forest_green"
+            android:inputType="text"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_layout_description"
+        style="@style/OutlineBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+
+        android:autofillHints="name"
+        android:hint="Description"
+
+        app:boxStrokeErrorColor="@color/red"
+
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_layout_category"
+        app:shapeAppearance="@style/Rounded">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:lines="5"
+            android:textColor="@color/forest_green" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add_expense"

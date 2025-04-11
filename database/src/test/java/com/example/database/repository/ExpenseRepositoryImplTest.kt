@@ -1,8 +1,7 @@
 package com.example.database.repository
 
 import com.example.database.fakes.FakeLocalDataSource
-import com.example.domain.dataresult.DataResult
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 import com.example.domain.repository.ExpenseRepository
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*

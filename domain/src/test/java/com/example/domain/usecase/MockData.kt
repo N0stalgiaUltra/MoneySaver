@@ -1,10 +1,8 @@
 package com.example.domain.usecase
 
-import android.provider.ContactsContract.Data
 import com.example.domain.dataresult.DataResult
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 import com.example.domain.repository.ExpenseRepository
-import kotlin.math.exp
 
 class FakeExpenseRepository: ExpenseRepository {
     private var expenses = mutableListOf<Expense>()

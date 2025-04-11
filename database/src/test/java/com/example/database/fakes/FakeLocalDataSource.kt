@@ -1,7 +1,7 @@
 package com.example.database.fakes
 
 import com.example.domain.datasource.LocalDataSource
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 
 class FakeLocalDataSource : LocalDataSource {
     private val expenses = mutableListOf<Expense>()

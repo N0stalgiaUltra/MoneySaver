@@ -1,7 +1,7 @@
 package com.example.domain.repository
 
 import com.example.domain.dataresult.DataResult
-import com.example.domain.entity.Expense
+import com.example.domain.model.Expense
 
 interface ExpenseRepository {
     suspend fun addExpense(item: Expense) : DataResult<Unit>

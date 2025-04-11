@@ -7,10 +7,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.database.dao.ExpenseDao
 import com.example.database.entity.ExpenseLocal
 import com.example.database.mapper.ExpenseMapper
-import com.example.database.repository.LocalDataSourceImpl
-import com.example.domain.datasource.LocalDataSource
-import com.example.domain.entity.Expense
-import org.hamcrest.CoreMatchers.`is`
+import com.example.domain.model.Expense
 import org.junit.Assert.*
 
 import org.junit.After
@@ -32,8 +29,6 @@ class LocalDataSourceImplTest {
 
         dao = database.expenseDao()
     }
-
-
 
     @Test
     fun addExpense_should_insert_into_Database(){
