@@ -19,6 +19,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Build project with Gradle in CI
+        run: ./gradlew -Dorg.gradle.java.home=${{ env.JAVA_HOME }} build
+
       - name: Upload html test report
         uses: actions/upload-artifact@v4
         with:
