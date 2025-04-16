@@ -87,7 +87,7 @@ class AddExpenseFragmentInstrumentedTest {
 
         val result = ValidationUtil().validateName("nam0e")
         assertEquals(result.success, false)
-        assertEquals(result.error!![0], "Name cannot contain numbers !")
+        assertEquals(result.error!![0], "Name cannot contain numbers!")
     }
     @Test
     fun shouldNotAddItemIfNameContainsSpecialCharacters(){
@@ -105,7 +105,7 @@ class AddExpenseFragmentInstrumentedTest {
 
         val result = ValidationUtil().validateName("n@me")
         assertEquals(result.success, false)
-        assertEquals(result.error!![0], "Name cannot contain special characters !")
+        assertEquals(result.error!![0], "Name cannot contain special characters!")
 
     }
 
