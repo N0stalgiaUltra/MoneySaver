@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: [ main, feature-add-expense, add-cicd]
+    branches: [ main, dev, feature-add-expense,]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
