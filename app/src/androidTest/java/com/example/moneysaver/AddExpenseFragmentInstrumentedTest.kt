@@ -5,6 +5,7 @@ import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso.closeSoftKeyboard
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.PickerActions
@@ -83,7 +84,9 @@ class AddExpenseFragmentInstrumentedTest {
             "nam0e"))
 
         val addButton = onView(withId(R.id.btn_add_expense))
-        addButton.check(matches(isDisplayed())).perform(click())
+        addButton.check(matches(isDisplayed()))
+            .perform(scrollTo())
+            .perform(click())
 
         val result = ValidationUtil().validateName("nam0e")
         assertEquals(result.success, false)
@@ -101,7 +104,9 @@ class AddExpenseFragmentInstrumentedTest {
             "n@me"))
 
         val addButton = onView(withId(R.id.btn_add_expense))
-        addButton.check(matches(isDisplayed())).perform(click())
+        addButton.check(matches(isDisplayed()))
+            .perform(scrollTo())
+            .perform(click())
 
         val result = ValidationUtil().validateName("n@me")
         assertEquals(result.success, false)
@@ -121,7 +126,9 @@ class AddExpenseFragmentInstrumentedTest {
             "n@0meaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
 
         val addButton = onView(withId(R.id.btn_add_expense))
-        addButton.check(matches(isDisplayed())).perform(click())
+        addButton.check(matches(isDisplayed()))
+            .perform(scrollTo())
+            .perform(click())
 
         val result = ValidationUtil().validateName("n@0meaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         assertEquals(result.success, false)
@@ -183,7 +190,9 @@ class AddExpenseFragmentInstrumentedTest {
             "0.0"))
 
         val addButton = onView(withId(R.id.btn_add_expense))
-        addButton.check(matches(isDisplayed())).perform(click())
+        addButton.check(matches(isDisplayed()))
+            .perform(scrollTo())
+            .perform(click())
 
         val result = ValidationUtil().validateAmount("0.0")
         assertEquals(result.success, false)
@@ -202,7 +211,9 @@ class AddExpenseFragmentInstrumentedTest {
             "-1.0"))
 
         val addButton = onView(withId(R.id.btn_add_expense))
-        addButton.check(matches(isDisplayed())).perform(click())
+        addButton.check(matches(isDisplayed()))
+            .perform(scrollTo())
+            .perform(click())
 
         val result = ValidationUtil().validateAmount("-1.0")
         assertEquals(result.success, false)
@@ -221,7 +232,9 @@ class AddExpenseFragmentInstrumentedTest {
             "10"))
 
         val addButton = onView(withId(R.id.btn_add_expense))
-        addButton.check(matches(isDisplayed())).perform(click())
+        addButton.check(matches(isDisplayed()))
+            .perform(scrollTo())
+            .perform(click())
 
         val result = ValidationUtil().validateAmount("10")
         assertEquals(result.success, true)
@@ -239,7 +252,9 @@ class AddExpenseFragmentInstrumentedTest {
             "10.50"))
 
         val addButton = onView(withId(R.id.btn_add_expense))
-        addButton.check(matches(isDisplayed())).perform(click())
+        addButton.check(matches(isDisplayed()))
+            .perform(scrollTo())
+            .perform(click())
 
         val result = ValidationUtil().validateAmount("10.50")
         assertEquals(result.success, true)
