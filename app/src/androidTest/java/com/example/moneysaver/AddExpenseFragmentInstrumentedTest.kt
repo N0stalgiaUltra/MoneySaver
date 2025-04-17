@@ -82,10 +82,9 @@ class AddExpenseFragmentInstrumentedTest {
         onViewEditText.check(matches(isDisplayed()))
         onViewEditText.perform(typeText(
             "nam0e"))
-
+        closeSoftKeyboard()
         val addButton = onView(withId(R.id.btn_add_expense))
         addButton.check(matches(isDisplayed()))
-            .perform(scrollTo())
             .perform(click())
 
         val result = ValidationUtil().validateName("nam0e")
@@ -102,10 +101,9 @@ class AddExpenseFragmentInstrumentedTest {
         onViewEditText.check(matches(isDisplayed()))
         onViewEditText.perform(typeText(
             "n@me"))
-
+        closeSoftKeyboard()
         val addButton = onView(withId(R.id.btn_add_expense))
         addButton.check(matches(isDisplayed()))
-            .perform(scrollTo())
             .perform(click())
 
         val result = ValidationUtil().validateName("n@me")
@@ -124,10 +122,9 @@ class AddExpenseFragmentInstrumentedTest {
         onViewEditText.check(matches(isDisplayed()))
         onViewEditText.perform(typeText(
             "n@0meaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-
+        closeSoftKeyboard()
         val addButton = onView(withId(R.id.btn_add_expense))
         addButton.check(matches(isDisplayed()))
-            .perform(scrollTo())
             .perform(click())
 
         val result = ValidationUtil().validateName("n@0meaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
@@ -188,10 +185,9 @@ class AddExpenseFragmentInstrumentedTest {
         amountEditText.check(matches(isDisplayed()))
         amountEditText.perform(typeText(
             "0.0"))
-
+        closeSoftKeyboard()
         val addButton = onView(withId(R.id.btn_add_expense))
         addButton.check(matches(isDisplayed()))
-            .perform(scrollTo())
             .perform(click())
 
         val result = ValidationUtil().validateAmount("0.0")
@@ -209,10 +205,9 @@ class AddExpenseFragmentInstrumentedTest {
         amountEditText.check(matches(isDisplayed()))
         amountEditText.perform(typeText(
             "-1.0"))
-
+        closeSoftKeyboard()
         val addButton = onView(withId(R.id.btn_add_expense))
         addButton.check(matches(isDisplayed()))
-            .perform(scrollTo())
             .perform(click())
 
         val result = ValidationUtil().validateAmount("-1.0")
@@ -230,10 +225,9 @@ class AddExpenseFragmentInstrumentedTest {
         amountEditText.check(matches(isDisplayed()))
         amountEditText.perform(typeText(
             "10"))
-
+        closeSoftKeyboard()
         val addButton = onView(withId(R.id.btn_add_expense))
         addButton.check(matches(isDisplayed()))
-            .perform(scrollTo())
             .perform(click())
 
         val result = ValidationUtil().validateAmount("10")
@@ -250,10 +244,9 @@ class AddExpenseFragmentInstrumentedTest {
         amountEditText.check(matches(isDisplayed()))
         amountEditText.perform(typeText(
             "10.50"))
-
+        closeSoftKeyboard()
         val addButton = onView(withId(R.id.btn_add_expense))
         addButton.check(matches(isDisplayed()))
-            .perform(scrollTo())
             .perform(click())
 
         val result = ValidationUtil().validateAmount("10.50")
