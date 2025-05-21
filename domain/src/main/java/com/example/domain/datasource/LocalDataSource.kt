@@ -3,9 +3,9 @@ package com.example.domain.datasource
 import com.example.domain.model.Expense
 
 interface LocalDataSource {
-    fun insert(expense: Expense)
-    fun remove(id: Long)
-    fun getItems(): List<Expense>
-    fun getItem(id: Long): Expense
+    suspend fun insert(expense: Expense)
+    suspend fun remove(id: Long)
+    suspend fun getItems(): List<Expense>
+    suspend fun getItem(id: Long): Expense
 
 }

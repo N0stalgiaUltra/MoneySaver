@@ -5,20 +5,19 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.database.entity.ExpenseLocal
-import com.example.domain.model.Expense
 
 @Dao
 interface ExpenseDao {
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun insertExpense(expense: ExpenseLocal)
+    suspend fun insertExpense(expense: ExpenseLocal)
 
     @Query("DELETE FROM expenses WHERE id = :id")
-    fun removeExpenseUseCase(id: Long)
+    suspend fun removeExpenseUseCase(id: Long)
 
     @Query("SELECT * FROM expenses")
-    fun getAllExpenses() : List<Expense>
+    suspend fun getAllExpenses() : List<ExpenseLocal>
 
     @Query("SELECT * FROM expenses WHERE id = :id")
-    fun getExpense(id: Long) : Expense
+    suspend fun getExpense(id: Long) : ExpenseLocal
 }

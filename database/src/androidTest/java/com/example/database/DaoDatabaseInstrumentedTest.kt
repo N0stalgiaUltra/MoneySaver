@@ -31,7 +31,7 @@ class LocalDataSourceImplTest {
     }
 
     @Test
-    fun addExpense_should_insert_into_Database(){
+    suspend fun addExpense_should_insert_into_Database(){
         //local data source already define the conversion from domain to local
         val expense : ExpenseLocal =
             ExpenseMapper.toExpenseLocal(
@@ -48,7 +48,7 @@ class LocalDataSourceImplTest {
     }
 
     @Test
-    fun addExpense_should_not_insert_with_same_id(){
+    suspend fun addExpense_should_not_insert_with_same_id(){
         val expense1 : ExpenseLocal =
             ExpenseMapper.toExpenseLocal(
                 Expense(
