@@ -8,6 +8,7 @@ import com.example.database.dao.ExpenseDao
 import com.example.database.entity.ExpenseLocal
 import com.example.database.mapper.ExpenseMapper
 import com.example.domain.model.Expense
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
 
 import org.junit.After
@@ -31,7 +32,7 @@ class LocalDataSourceImplTest {
     }
 
     @Test
-    suspend fun addExpense_should_insert_into_Database(){
+    fun addExpense_should_insert_into_Database() = runTest {
         //local data source already define the conversion from domain to local
         val expense : ExpenseLocal =
             ExpenseMapper.toExpenseLocal(
@@ -44,11 +45,11 @@ class LocalDataSourceImplTest {
         val expenses = dao.getAllExpenses()
 
         assertEquals(expenses.size, 1)
-        assertEquals(expenses[0], ExpenseMapper.toExpense(expense))
+        assertEquals(expenses[0], expense)
     }
 
     @Test
-    suspend fun addExpense_should_not_insert_with_same_id(){
+    fun addExpense_should_not_insert_with_same_id() = runTest {
         val expense1 : ExpenseLocal =
             ExpenseMapper.toExpenseLocal(
                 Expense(
