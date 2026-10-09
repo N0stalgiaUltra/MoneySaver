@@ -1,4 +1,4 @@
-package com.example.domain.entity
+package com.example.domain.model
 
 data class Expense(
     val id: Long,
@@ -6,5 +6,5 @@ data class Expense(
     val amount: Double,
     val date: String,
     val category: String,
-    val description: String
+    val description: String = ""
 )

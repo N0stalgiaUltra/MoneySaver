@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: [ main ]
+    branches: ['**']
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -13,28 +13,63 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v4
 
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run lint
+        run: ./gradlew lintDebug
+
       - name: Upload html test report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: lint.html
           path: app/build/reports/lint-results-debug.html
+
   unit-test:
     needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
-        
-      - name: Give Gradle wrapper execute permission
-        run: chmod +x gradlew
-      
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Run tests
         run: ./gradlew test
 
-      - name: Upload test report
+      - name: Upload domain test report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: unit_test_report
+          name: domain_unit_test_report
+          path: domain/build/reports/tests/testDebugUnitTest/
+
+      - name: Upload database test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: database_unit_test_report
+          path: database/build/reports/tests/testDebugUnitTest/
+
+      - name: Upload app test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: app_unit_test_report
           path: app/build/reports/tests/testDebugUnitTest/
 
   instrumentation-test:
@@ -44,6 +79,15 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v4
 
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Run espresso tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -51,6 +95,7 @@ jobs:
           script: ./gradlew connectedCheck
 
       - name: Upload test report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: instrumentation_test_report
