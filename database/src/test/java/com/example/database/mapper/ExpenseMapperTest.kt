@@ -1,11 +1,7 @@
 package com.example.database.mapper
 
-import com.example.database.entity.ExpenseLocal
 import com.example.database.fakes.ExpenseFakes
-import com.example.domain.model.Expense
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
-import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class ExpenseMapperTest {
