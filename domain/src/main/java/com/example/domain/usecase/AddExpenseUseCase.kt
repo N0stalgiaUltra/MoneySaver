@@ -8,7 +8,8 @@ class AddExpenseUseCase(private val repository: ExpenseRepository) {
     suspend operator fun invoke(expense: Expense): DataResult<Unit> {
         if(expense.name.isBlank() || expense.amount <= 0){
             return DataResult.Failure(IllegalArgumentException
-                ("Invalid Expense"))
+                ("Invalid Expense")
+            )
         }
 
         return try {
